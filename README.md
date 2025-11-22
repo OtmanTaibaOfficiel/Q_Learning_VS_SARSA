@@ -2,13 +2,17 @@
 
 ## Description
 
-Ce projet compare deux algorithmes d'apprentissage par renforcement : **Q-Learning** et **SARSA**, sur un environnement **FrozenLake 8x8** avec carte personnalisée.
+Ce projet compare deux algorithmes d'apprentissage par renforcement : **Q-Learning** et **SARSA**, en utilisant un notebook Jupyter (`Q_learning_vs_sarsa.ipynb`) sur l'environnement **FrozenLake 8x8** avec carte personnalisée.
 
-L'objectif est d'analyser la performance de chaque algorithme pour atteindre le **Goal (G)** depuis le **Start (S)** en évitant les trous (Holes).
+L'objectif est d'analyser :
+
+* Le taux de réussite pour atteindre le **Goal (G)** depuis le **Start (S)**.
+* La longueur et la sécurité des chemins calculés par chaque algorithme.
+* La performance globale en termes de récompense moyenne et d’efficacité de l’exploration.
 
 ---
 
-## Carte utilisée (8x8)
+## Carte 8x8 utilisée
 
 ```
 F F F F F F F F
@@ -26,103 +30,76 @@ F F F F F F F G
 * **H** : Hole (trou)
 * **G** : Goal (objectif final)
 
-L'environnement est **slippery**, les déplacements peuvent donc être aléatoires.
-
 ---
 
 ## Contenu du projet
 
-* `Q_learning_vs_sarsa.py` : code principal avec implémentations Q-Learning et SARSA
-* `plots/` : dossier contenant les graphiques générés (reward, succès, chemins)
-* `README.md` : ce fichier
+* `Q_learning_vs_sarsa.ipynb` : notebook avec implémentations Q-Learning et SARSA, visualisations et analyse comparative.
+* `README.md` : ce fichier.
 
 ---
 
 ## Installation
 
-Assurez-vous d’avoir Python ≥ 3.8 et installez les dépendances :
+Assurez-vous d'avoir Python ≥ 3.8 et Jupyter Notebook, puis installez les dépendances :
 
 ```bash
-pip install numpy matplotlib gymnasium
+pip install numpy matplotlib gymnasium notebook
+```
+
+Lancez le notebook :
+
+```bash
+jupyter notebook Q_learning_vs_sarsa.ipynb
 ```
 
 ---
 
-## Paramètres du projet
+## Paramètres principaux
 
-* **Alpha (α)** : 0.1 → taux d'apprentissage
-* **Gamma (γ)** : 0.95 → facteur d’actualisation
-* **Epsilon (ε)** : 1.0 → exploration initiale
-* **Epsilon decay** : 0.998 → décroissance progressive
-* **Epsilon min** : 0.01 → exploration minimale
+* **Alpha (α)** : 0.1 (taux d’apprentissage)
+* **Gamma (γ)** : 0.95 (facteur d’actualisation)
+* **Epsilon (ε)** : 1.0 (exploration initiale)
+* **Epsilon decay** : 0.998 (décroissance)
+* **Epsilon min** : 0.01
 * **Episodes** : 2000
 * **Max steps** : 200
 
-Ces paramètres assurent une exploration suffisante et un apprentissage stable sur la carte 8x8.
+Ces paramètres assurent un apprentissage stable sur la carte 8x8.
 
 ---
 
-## Utilisation
+## Fonctionnalités du notebook
 
-Exécutez le script principal :
-
-```bash
-python Q_learning_vs_sarsa.py
-```
-
-Le code effectuera :
-
-1. L'entraînement des deux algorithmes sur 2000 épisodes.
-2. La génération de graphiques comparatifs :
+1. **Entraînement des deux algorithmes** (Q-Learning et SARSA).
+2. **Visualisation des performances** :
 
    * Reward moyen vs épisodes
    * Taux de succès (%) vs épisodes
-3. Le tracé des chemins S → G pour Q-Learning et SARSA.
-4. Un test final sur 10 épisodes en mode rendu humain.
-5. Une analyse comparative détaillée des performances.
+3. **Tracé des chemins S → G** pour Q-Learning (optimal) et SARSA (safe).
+4. **Test final** sur 10 épisodes avec rendu humain pour observer le comportement réel.
+5. **Analyse comparative** des performances et des chemins.
 
 ---
 
-## Visualisation
-
-* **Graphiques reward/success** : permettent d'observer la convergence et les différences entre Q-Learning et SARSA.
-* **Chemins sur la carte** : Q-Learning → chemin optimal, SARSA → chemin safe.
-* **Test final** : montre les performances réelles des algorithmes avec visualisation.
-
----
-
-## Analyse et résultats attendus
-
-* **Q-Learning** : plus rapide, trouve des chemins optimaux mais risque de tomber dans les trous.
-* **SARSA** : plus sûr, peut prendre des chemins plus longs mais minimise le risque d’échec.
-* Comparaison quantitative :
-
-  * Récompense moyenne sur 100 derniers épisodes
-  * Taux de réussite
-  * Longueur des chemins S → G
-  * Max / moyenne des Q-values
-
----
-
-## Structure du projet
+## Structure du dépôt
 
 ```
 Q_Learning_VS_SARSA/
-│── Q_learning_vs_sarsa.py
+│── Q_learning_vs_sarsa.ipynb
 │── README.md
-│── plots/
 ```
-
----
-
-## Licence
-
-Ce projet est libre d’utilisation et modifiable pour des fins pédagogiques et de recherche.
 
 ---
 
 ## Auteur
 
 **Otman Taiba**
-Étudiant en Master Intelligence Artificielle
-Projet pédagogique et de recherche sur l’apprentissage par renforcement.
+Étudiant en Master Master Machine Learning Avancé et Intelligence Multimédia
+Projet pédagogique sur DEEP REINFORCEMENT LEARNING AND MULTIMODAL GENERATIVE AI.
+
+---
+
+## Licence
+
+Projet libre d'utilisation et modifiable à des fins pédagogiques et de recherche.
